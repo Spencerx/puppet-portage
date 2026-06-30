@@ -18,7 +18,7 @@ webapp-config, eselect, and portage-utils).
 
 ### Resource types
 
-* [`eselect`](#eselect): Manages eselect modules on Gentoo systems.
+* [`eselect`](#eselect): Set value of an eselect module  eselect { 'editor':   set => 'vim', }
 * [`package_accept_keywords`](#package_accept_keywords): Set accept_keywords for a package.  package_accept_keywords { 'app-admin/puppet':   accept_keywords  => ['~x86', '-hppa'],   target  => 'pupp
 * [`package_env`](#package_env): Set environment variables for a package.  package_env { 'dev-libs/boost':   env    => ['no-distcc', 'single-build-thread'],   target => 'boos
 * [`package_mask`](#package_mask): Mask packages in portage.  package_mask { 'app-admin/chef':   target  => 'chef', }
@@ -585,19 +585,11 @@ Default value: `undef`
 
 ### <a name="eselect"></a>`eselect`
 
-This type provides Puppet with the capability to manage `eselect`
-modules, allowing you to set the active value for a given module
-(e.g. `editor`, `profile`, `java-vm`, `php::cli`).
+Set value of an eselect module
 
-#### Examples
-
-##### 
-
-```puppet
 eselect { 'editor':
   set => 'vim',
 }
-```
 
 #### Properties
 
@@ -605,9 +597,7 @@ The following properties are available in the `eselect` type.
 
 ##### `set`
 
-Data type: `String`
-
-The value to set as active for this eselect module.
+The value of the eselect module.
 
 #### Parameters
 
@@ -620,9 +610,7 @@ The following parameters are available in the `eselect` type.
 
 namevar
 
-Data type: `String`
-
-The name of the eselect module to manage (e.g. `editor`, `profile`, `java-vm`).
+The name of the eselect module.
 
 ##### <a name="-eselect--provider"></a>`provider`
 
